@@ -59,14 +59,17 @@
         </div>
     </div>
 
-</body>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script src="scripts/supabase-init.js"></script>
+    <script src="scripts/supabase-init.js"></script>
+
+    <script src="scripts/companies.js"></script>
+
+</body>
 
 <script>
     async function checkUser() {
-        
+
         if (typeof supabase === 'undefined') {
             console.error("Supabase not found! Waiting...");
             return;
@@ -74,10 +77,8 @@
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) window.location.href = 'login.html';
     }
-    
+
     window.addEventListener('load', checkUser);
 </script>
-
-<script src="companies.js"></script>
 
 </html>

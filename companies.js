@@ -98,16 +98,17 @@ document.getElementById('create-company-form').addEventListener('submit', async 
     const gst = document.getElementById('comp-gst').value;
 
     // Insert karte waqt user_id manually pass karo
-    const { data, error } = await supabase
-        .from('companies')
-        .insert([
-            { 
-                name: name, 
-                gst_no: gst, 
-                user_id: user.id  // Yeh bahut zaruri hai
-            }
-        ])
-        .select();
+    const { data: { user } } = await supabase.auth.getUser(); // Pehle user lo
+
+const { data, error } = await supabase
+    .from('companies')
+    .insert([
+        { 
+            name: name, 
+            gst_no: gst, 
+            user_id: user.id  // Ye line miss mat karna!
+        }
+    ]);
 
     if (error) {
         console.error("Supabase Error:", error); // Console check karo!
