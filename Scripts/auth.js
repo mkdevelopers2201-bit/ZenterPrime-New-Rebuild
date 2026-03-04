@@ -43,7 +43,7 @@ if (loginForm) {
             alert("Login Failed: " + error.message);
         } else {
             console.log("Login Success:", data);
-            window.location.href = 'index.html';
+            window.location.href = 'companies.html';
         }
     });
 }

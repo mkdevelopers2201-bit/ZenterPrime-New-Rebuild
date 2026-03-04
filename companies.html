@@ -18,21 +18,9 @@
             <div class="inputs">
                 <input type="text" placeholder="Search your Companies..." class="search-input">
                 <button onclick="openModal()" class="create-company">Create New Company</button>
-
+            </div>
                 <div id="companies-list" class="companies-grid">
                 </div>
-            </div>
-
-            <div class="default-company">
-                <h3>Default Company</h3>
-                <p>You can delete this company or edit company name to own yours!</p>
-
-                <div class="company-configuration-btn">
-                    <button class="edit-company"><span class="material-symbols-outlined">edit</span></button>
-                    <button class="delete-company"><span class="material-symbols-outlined">delete</span></button>
-                    <button class="visit-company"><span class="material-symbols-outlined">chevron_right</span></button>
-                </div>
-            </div>
         </header>
     </div>
 
@@ -60,25 +48,32 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <script src="scripts/supabase-init.js"></script>
 
-    <script src="scripts/companies.js"></script>
+    <script>
+        async function checkUser() {
+            const supabaseClient = window.supabase || supabase;
+
+            if (typeof supabaseClient === 'undefined') {
+                console.error("Supabase not found! Waiting...");
+                return;
+            }
+
+            const { data: { user } } = await supabaseClient.auth.getUser();
+
+            if (!user) {
+                const currentPage = window.location.pathname;
+                if (!currentPage.includes('login.html') && !currentPage.includes('signup.html')) {
+                    window.location.href = 'companies.html';
+                }
+            }
+        }
+
+        window.addEventListener('load', checkUser);
+    </script>
+
+    <script src="companies.js"></script>
 
 </body>
-
-<script>
-    async function checkUser() {
-
-        if (typeof supabase === 'undefined') {
-            console.error("Supabase not found! Waiting...");
-            return;
-        }
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) window.location.href = 'login.html';
-    }
-
-    window.addEventListener('load', checkUser);
-</script>
 
 </html>
