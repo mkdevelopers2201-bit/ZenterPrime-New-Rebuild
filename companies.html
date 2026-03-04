@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZenterPrime - Your Companies</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <div class="main">
         <header>
             <h1>Your Companies</h1>
@@ -16,7 +18,20 @@
     </div>
 
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="scripts/supabase-init.js"></script>
-    <script src="scripts/companies.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="scripts/supabase-init.js"></script>
+
+<script>
+    async function checkUser() {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+            window.location.href = 'login.html';
+        }
+    }
+    checkUser();
+</script>
+
+<script src="scripts/companies.js"></script>
+
 </html>
