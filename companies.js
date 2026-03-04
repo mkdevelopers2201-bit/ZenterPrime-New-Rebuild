@@ -1,5 +1,22 @@
+let allCompanies = []; 
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchCompanies();
+
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            const filtered = allCompanies.filter(company => {
+                const nameMatch = company.name.toLowerCase().includes(query);
+                const gstMatch = company.gst_no && company.gst_no.toLowerCase().includes(query);
+                return nameMatch || gstMatch;
+            });
+
+            renderCompanies(filtered);
+        });
+    }
 
     const createForm = document.getElementById('create-company-form');
     if (createForm) {
@@ -8,9 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchCompanies() {
-    const container = document.getElementById('companies-list');
-    if (!container) return;
-
     const { data: { user } } = await window.supabase.auth.getUser();
     if (!user) return;
 
@@ -24,12 +38,20 @@ async function fetchCompanies() {
         return;
     }
 
-    renderCompanies(companies);
+    allCompanies = companies; 
+    renderCompanies(allCompanies);
 }
 
 function renderCompanies(companies) {
     const container = document.getElementById('companies-list');
+    if (!container) return;
+    
     container.innerHTML = '';
+
+    if (companies.length === 0) {
+        container.innerHTML = '<p style="color: #64748b; margin-top: 20px; text-align: center; width: 100%;">No companies found.</p>';
+        return;
+    }
 
     companies.forEach(company => {
         const card = document.createElement('div');
@@ -40,15 +62,11 @@ function renderCompanies(companies) {
                     <h3 style="margin: 0; color: #163953;">${company.name}</h3>
                     <p style="margin: 5px 0; color: #64748b; font-size: 0.9rem;">Created by: ${company.gst_no || 'N/A'}</p>
                 </div>
-                <div class="actions">
+                <div class="company-configuration-btn">
+                    <button class="edit-company"><span class="material-symbols-outlined">edit</span></button>
+                    <button class="delete-company"><span class="material-symbols-outlined">delete</span></button>
                     <button class="visit-company" onclick="visitCompany('${company.id}')">
-                        <span class="material-symbols-outlined">visibility</span> Visit
-                    </button>
-                    <button class="edit-company">
-                        <span class="material-symbols-outlined">edit</span> Edit
-                    </button>
-                    <button class="delete-company">
-                        <span class="material-symbols-outlined">delete</span> Delete
+                        <span class="material-symbols-outlined">chevron_right</span>
                     </button>
                 </div>
             </div>
@@ -82,15 +100,19 @@ async function handleCreateCompany(e) {
 }
 
 function openModal() {
-    document.getElementById('company-modal').style.display = 'flex';
+    const modal = document.getElementById('company-modal');
+    if (modal) modal.style.display = 'flex';
 }
 
 function closeModal() {
-    document.getElementById('company-modal').style.display = 'none';
-    document.getElementById('create-company-form').reset();
+    const modal = document.getElementById('company-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.getElementById('create-company-form').reset();
+    }
 }
 
 function visitCompany(id) {
     localStorage.setItem('active_company_id', id);
-    window.location.href = 'index.html';
+    window.location.href = 'dashboard.html';
 }
