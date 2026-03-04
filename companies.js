@@ -6,7 +6,7 @@ async function fetchCompanies() {
         return;
     }
 
-    // Supabase se companies uthao (Table ka naam 'companies' hona chahiye)
+    // Taking companies from Supabase
     const { data: companies, error } = await supabase
         .from('companies')
         .select('*')
