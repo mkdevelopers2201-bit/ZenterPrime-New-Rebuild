@@ -36,21 +36,19 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <script src="scripts/supabase-init.js"></script>
 
     <script>
         async function checkUser() {
             const { data: { user } } = await supabase.auth.getUser();
             if (!user) {
-                // Agar user logged in nahi hai, toh wapas login page pe bhej do
                 window.location.href = 'login.html';
             }
         }
         checkUser();
     </script>
-
-    <script src="scripts/companies.js"></script>
+    <script src="Scripts/auth.js"></script>
+    <script src="companies.js"></script>
 </body>
 
 </html>
