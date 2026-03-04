@@ -17,7 +17,7 @@
             <h1>Your Companies</h1>
             <div class="inputs">
                 <input type="text" placeholder="Search your Companies..." class="search-input">
-                <button class="create-company">Create New Company</button>
+                <button onclick="openModal()" class="create-company">Create New Company</button>
 
                 <div id="companies-list" class="companies-grid">
                 </div>
@@ -36,6 +36,29 @@
         </header>
     </div>
 
+    <div id="company-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Create New Company</h3>
+                <button onclick="closeModal()" class="close-btn">&times;</button>
+            </div>
+            <form id="create-company-form">
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" id="comp-name" placeholder="e.g. Acme Solutions" required>
+                </div>
+                <div class="form-group">
+                    <label>Owner Name (Optional)</label>
+                    <input type="text" id="comp-gst" placeholder="e.g. John Doe">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal()" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">Create Company</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -43,12 +66,16 @@
 
 <script>
     async function checkUser() {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
-            window.location.href = 'login.html';
+        
+        if (typeof supabase === 'undefined') {
+            console.error("Supabase not found! Waiting...");
+            return;
         }
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) window.location.href = 'login.html';
     }
-    checkUser();
+    
+    window.addEventListener('load', checkUser);
 </script>
 
 <script src="companies.js"></script>
