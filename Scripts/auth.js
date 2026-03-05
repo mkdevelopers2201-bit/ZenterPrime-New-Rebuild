@@ -41,9 +41,11 @@ if (loginForm) {
 
         if (error) {
             alert("Login Failed: " + error.message);
-        } else {
-            console.log("Login Success:", data);
-            window.location.href = 'companies.html';
-        }
+            await window.supabase.auth.signOut();
+            alert("Connection issue! Session cleared, please try again.");
+    } else {
+        console.log("Login Success:", data);
+        window.location.href = 'companies.html';
+    }
     });
 }
