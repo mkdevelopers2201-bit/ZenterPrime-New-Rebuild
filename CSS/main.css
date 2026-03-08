@@ -1,0 +1,137 @@
+body {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f8faff;
+    color: #0F172A;
+}
+
+/* Main Header */
+
+.header-section {
+    padding-top: 2px;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+    background-color: #f8faff;
+}
+
+.header-h2-span {
+    color: darkorange;
+}
+
+.buttons-h3 {
+    text-align: center;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sales-button {
+    padding: 12px 24px;
+    background-color: rgb(180, 255, 180);
+    border: 1px solid #0F172A;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.purchase-button {
+    padding: 12px 24px;
+    background-color: rgb(255, 238, 180);
+    border: 1px solid #0F172A;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.stock-button {
+    padding: 12px 24px;
+    background-color: rgb(215, 237, 255);
+    border: 1px solid #0F172A;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.parties-button {
+    padding: 12px 24px;
+    background-color: rgb(215, 255, 248);
+    border: 1px solid #0F172A;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reports-h3 {
+    text-align: center;
+}
+
+.reports-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sales-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
+
+.purchase-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
+
+.stock-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
+
+.parties-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
+
+.ledger-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
+
+.other-reports-h3 {
+    text-align: center;
+}
+
+.other-reports {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.monthly-gst-report {
+    background-color: white;
+    width: 525px;
+    padding-left: 20px;
+    border: 1px solid #0F172A;
+    border-radius: 10px;
+}
