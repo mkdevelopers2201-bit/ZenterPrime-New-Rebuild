@@ -20,6 +20,8 @@ body {
     color: darkorange;
 }
 
+/* Buttons Section */
+
 .buttons-h3 {
     text-align: center;
 }
@@ -63,6 +65,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Reports Section */
 
 .reports-h3 {
     text-align: center;
@@ -134,4 +138,26 @@ body {
     padding-left: 20px;
     border: 1px solid #0F172A;
     border-radius: 10px;
+}
+
+/* View Report Button */
+
+.action-btn-txt {
+    padding: 12px 24px;
+    width: 12px;
+    text-align: center;
+    background-color: #f8faff;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.action-btn-txt:hover {
+    padding: 12px 24px;
+    width: 12px;
+    text-align: center;
+    background-color: #d8e3ff;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
 }
