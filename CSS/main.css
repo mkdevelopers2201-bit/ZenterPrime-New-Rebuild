@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'calibri', sans-serif;
+}
+
+
+:root {
+    --bg-card: #ffffff;
+    --table-header-bg: #ffffff;
+    --primary-blue: #000000;
+    --text-main: #000000;
+    --text-dim: #b0b0b0;
+}
+
+header {
+    background-color: rgb(56, 65, 75);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+}
+
+header .prime-span {
+    color: rgb(255, 217, 0);
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+ul li {
+    list-style: none;
+    background-color: white;
+    padding: 12px 24px;
+}
+
+ul li a {
+    color: rgb(56, 65, 75);
+    text-decoration: none;
+
+}
+
+.link-span {
+    color: rgb(0, 0, 255);
+}
+
+.highlight {
+    background-color: rgb(255, 248, 185);
+    border: 2px solid rgb(255, 145, 0);
+}
+
+h2 {
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-new-company {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 10px;
+    background-color: rgb(56, 65, 75);
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.configure-existing-companies {
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    text-align: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    padding: 12px;
+}
+
+.company-table-container {
+    padding: 20px;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.zenter-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-main);
+}
+
+.zenter-table th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-blue);
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #333;
+}
+
+.zenter-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+    font-size: 0.95rem;
+}
+
+.table-row.active {
+    background-color: rgb(255, 255, 255);
+    color: var(--primary-blue);
+}
+
+.table-row:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.zenter-table td:first-child {
+    color: var(--text-dim); 
+}
