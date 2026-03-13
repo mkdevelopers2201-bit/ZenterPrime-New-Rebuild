@@ -5,7 +5,6 @@ body {
     font-family: 'calibri', sans-serif;
 }
 
-
 :root {
     --primary-color: rgb(68, 84, 106);
     --secondary-color: rgb(242, 242, 242);
@@ -16,6 +15,8 @@ body {
     --shortcut-keys-text: rgb(91, 155, 213);
     --close-btn: rgb(192, 0, 0);
 }
+
+/* Your Companies Screen Styling */
 
 header {
     background-color: var(--primary-color);
@@ -71,7 +72,7 @@ ul li a {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -158,4 +159,27 @@ input {
 
 .zenter-table td:first-child {
     color: var(--text-dim);
+}
+
+/* Create New Company Screen Styling */
+
+.close-btn {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background-color: white;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--close-btn);
+    border: 1px solid var(--close-btn);
+    padding: 12px 12px;
+    width: 50px;
+    height: 50px;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
