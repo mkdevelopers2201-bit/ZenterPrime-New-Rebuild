@@ -7,16 +7,20 @@ body {
 
 
 :root {
-    --bg-card: #ffffff;
-    --table-header-bg: #ffffff;
-    --primary-blue: #000000;
-    --text-main: #000000;
-    --text-dim: #b0b0b0;
+    --primary-color: rgb(68, 84, 106);
+    --secondary-color: rgb(242, 242, 242);
+    --secondary-border: rgb(173, 185, 202);
+    --background-color: white;
+    --nav-btn-background: rgb(255, 238, 187);
+    --nav-btn-border: rgb(255, 204, 0);
+    --shortcut-keys-text: rgb(91, 155, 213);
+    --close-btn: rgb(192, 0, 0);
 }
 
 header {
-    background-color: rgb(56, 65, 75);
+    background-color: var(--primary-color);
     color: white;
+    border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -24,7 +28,7 @@ header {
 }
 
 header .prime-span {
-    color: rgb(255, 217, 0);
+    color: var(--nav-btn-border);
 }
 
 ul {
@@ -36,7 +40,7 @@ ul {
 
 ul li {
     list-style: none;
-    background-color: white;
+    background-color: var(--secondary-color);
     padding: 12px 24px;
 }
 
@@ -47,15 +51,16 @@ ul li a {
 }
 
 .link-span {
-    color: rgb(0, 0, 255);
+    color: var(--shortcut-keys-text);
 }
 
 .highlight {
-    background-color: rgb(255, 248, 185);
-    border: 2px solid rgb(255, 145, 0);
+    background-color: var(--nav-btn-background);
+    border: 2px solid var(--nav-btn-border);
 }
 
-h2 {
+h3 {
+    font-size: 20px;
     text-align: center;
 }
 
@@ -68,7 +73,8 @@ h2 {
     margin-left: 12px;
     margin-right: 12px;
     margin-top: 10px;
-    background-color: rgb(56, 65, 75);
+    background-color: var(--primary-color);
+    border: none;
     color: white;
     padding: 15px;
     cursor: pointer;
@@ -77,7 +83,8 @@ h2 {
 .configure-existing-companies {
     margin-left: 12px;
     margin-right: 12px;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-border);
     color: black;
     padding: 15px;
     cursor: pointer;
@@ -92,7 +99,8 @@ input {
     text-align: center;
     margin-left: 12px;
     margin-right: 12px;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--seconday-color);
+    border: 1px solid var(--secondary-border);
     color: black;
     padding: 12px;
 }
@@ -118,12 +126,12 @@ input {
     padding: 12px 15px;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid var(--secondary-border);
 }
 
 .zenter-table td {
     padding: 12px 15px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #ffffff;
     font-size: 0.95rem;
 }
 
@@ -138,5 +146,5 @@ input {
 }
 
 .zenter-table td:first-child {
-    color: var(--text-dim); 
+    color: var(--text-dim);
 }
