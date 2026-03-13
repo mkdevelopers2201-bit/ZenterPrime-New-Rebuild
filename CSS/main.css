@@ -31,6 +31,17 @@ header .prime-span {
     color: var(--nav-btn-border);
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+
 ul {
     display: flex;
     justify-content: center;
